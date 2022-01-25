@@ -1,5 +1,10 @@
 # Getting Started with Create React App
 
+fontColor:#01F9F1;
+fontColor:#01FEFD;
+BackgroundColor:#172437;
+BackgroundColor:#233B55;
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
