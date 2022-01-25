@@ -27,3 +27,4 @@ src/firebaseCon.js
 src/testing.index
 src/testGitIgnor.js
 src/Redux/Reducer/new3.index
+src/Redux/Reducer/new.index
