@@ -1,5 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
+##open this file which i ignore>press ctrl+shift+O>input box>Git:Add to gitignore>then Enter
 # dependencies
 /node_modules
 /.pnp
@@ -24,3 +24,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 src/firebaseCon.js
+
