@@ -129,6 +129,7 @@ class Register extends Component {
 
                         <Col xs={6}>
                             <div style={{ textAlign: 'center' }}>
+
                                 <BsPersonPlus color="blue" fontSize="4em" />
                                 <h1 style={{ textAlign: 'center', marginTop: '25px' }}>User Registration</h1>
                             </div>
@@ -192,11 +193,11 @@ class Register extends Component {
                                 <Button style={{ width: "49%", margin: '15px 0', padding: '10px' }} variant="outline-info" type="submit">
                                     Login with Facebook
                                 </Button>
-                                <div className="text-center border border-info alert alert-success" style={{ margin: '10px', padding: '10px' }}>
+                                <div className="text-center border border-info alert alert-success" style={{}}>
 
                                     <h6>
                                         Already have an account !
-                                        <Link to="/login">Login</Link>
+                                        <Link to="/login" style={{ textDecoration: 'none' }}> Login</Link>
 
                                     </h6>
                                 </div>

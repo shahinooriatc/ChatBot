@@ -13,9 +13,9 @@ class LogOut extends Component {
 
     render() {
         return (
-            <h5 style={{color:'red'}}>
+            <h6 style={{color:'red'}}>
                 <p onClick={this.handleLogOut}>LogOut</p>
-            </h5>
+            </h6>
         )
     }
 }

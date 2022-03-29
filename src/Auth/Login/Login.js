@@ -123,10 +123,10 @@ class Login extends Component {
                                     Login with Facebook
                                 </Button>
 
-                                <div className="text-center border border-info alert alert-success" style={{ margin: '5px', padding: "10px" }}>
+                                <div className="text-center border border-info alert alert-success" >
                                     <h6>
                                         Don't have any Account!
-                                        <Link to="/register">Register</Link>
+                                        <Link to="/register" style={{textDecoration: 'none'}}> Register</Link>
 
                                     </h6>
                                 </div>

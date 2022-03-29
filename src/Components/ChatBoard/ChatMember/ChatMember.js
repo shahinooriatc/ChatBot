@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Alert, Button, Dropdown, Form, ListGroup, Modal } from 'react-bootstrap';
-import logo from '../../../Assets/Images/profile.jpg';
+import logo from '../../../Assets/Images/profile.png';
 import { BsFillPlusCircleFill, BsGlobe, BsPeopleFill } from "react-icons/bs";
 import { set, ref, push, getDatabase, onValue } from '../../../firebaseCon';
 import { connect } from 'react-redux';

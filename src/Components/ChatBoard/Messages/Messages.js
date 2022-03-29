@@ -40,7 +40,6 @@ class Messages extends Component {
                 this.setState({ inputMsg: '' })
                 console.log('Message Saved to Database')
             })
-            console.log(this.state.groupMsg);
 
         } else {
             this.setState({ errorMsg: 'Please Add A Message Before Send.' })
@@ -53,6 +52,7 @@ class Messages extends Component {
         const db = getDatabase();
         const messageCountRef = ref(db, 'messages/');
         onChildAdded(messageCountRef, (data) => {
+            console.log(data.val());
             data.forEach((item) => {
                 groupMessageArr.push(item.val())
             })
@@ -82,8 +82,6 @@ class Messages extends Component {
 
         });
     }
-
-
 
     render() {
 
@@ -123,14 +121,14 @@ class Messages extends Component {
                             <div className="message_field overflow-auto " style={{ backgroundColor: '#cccccc', height: '650px' }}>
 
                                 {this.state.groupMsg.map(item => (
-                                    item.groupId === this.props.currentGroup.groupId ?
+                                    item.groupId == this.props.currentGroup.groupId ?
                                         <>
                                             <div className=" mt-1">
 
-                                                <div className="media-body" style={item.sender === this.props.loggedInUser.uid ? rightAlign : ''}>
+                                                <div className="media-body" style={item.sender == this.props.loggedInUser.uid ? rightAlign : ''}>
                                                     <div className="bg-info rounded">
                                                         <div className="col-12 d-flex justify-content-end">
-                                                            <h6>{item.userName}</h6> &nbsp;<span style={{ marginLeft: '25px' }}>{moment().startOf(item.time).fromNow()}</span>
+                                                            <h6>{item.userName}</h6><span style={{ marginLeft: '25px' }}>{moment().startOf(item.time).fromNow()}</span>
                                                         </div>
                                                         <span style={{ textAlign: 'end', padding: '15px', color: '#FFFFFF' }}> {item.message}</span>
                                                     </div>
@@ -194,43 +192,3 @@ const rightAlign = {
 
 export default Messages;
 
-
- // componentDidUpdate(previousProps) {
-    //     let messageArr = [];
-    //     const db = getDatabase();
-    //     const starCountRef = ref(db, 'messages/' + this.props.currentGroup.groupId);
-    //     onChildAdded(starCountRef, (data) => {
-    //         data.forEach((item) => {
-    //             messageArr.push(item.val())
-    //         })
-    //         if (previousProps.currentGroup) {
-    //             if (previousProps.currentGroup.groupName !== this.props.currentGroup.groupName) {
-    //                 console.log('ager group', previousProps.currentGroup.groupName);
-    //                 console.log('new group', this.props.currentGroup.groupName);
-    //                 this.setState({ groupMsg: messageArr });
-    //             }
-
-    //         } else {
-    //             this.setState({ groupMsg: messageArr })
-    //             console.log(messageArr)
-    //         }
-    //     })
-
-    //     onChildChanged(starCountRef, (data) => {
-    //         data.forEach((item) => {
-    //             messageArr.push(item.val())
-    //         })
-    //         if (previousProps.currentGroup) {
-    //             if (previousProps.currentGroup.groupName !== this.props.currentGroup.groupName) {
-    //                 // this.setState({ groupMsg: messageArr })
-    //                 console.log('ager group', previousProps.currentGroup.groupName);
-    //                 console.log('new group', this.props.currentGroup.groupName);
-    //                 this.setState({ groupMsg: messageArr });
-    //             }
-
-    //         } else {
-    //             this.setState({ groupMsg: messageArr })
-    //             console.log(messageArr)
-    //         }
-    //     })
-    // }
