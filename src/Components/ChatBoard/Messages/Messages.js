@@ -1,10 +1,10 @@
 import moment from 'moment';
 import React, { Component } from 'react';
-import { Alert, Button, Col, Container, Form, Row, Toast } from 'react-bootstrap';
+import { Alert, Button, Col, Container, Form, Row, } from 'react-bootstrap';
 import { BsPeople } from 'react-icons/bs';
-import { getDatabase, ref, set, push, child, onValue, onChildAdded, onChildChanged } from "../../../firebaseCon";
-// import moment from 'moment';
-import Moment from 'react-moment';
+import { getDatabase, ref, set, push, child,  onChildAdded, onChildChanged } from "../../../firebaseCon";
+
+
 
 
 
@@ -21,7 +21,6 @@ class Messages extends Component {
     }
 
     handleSendMsg = () => {
-        console.log(this.props.currentGroup);
 
         if (this.state.inputMsg) {
             this.setState({ errorMsg: '' })
@@ -52,14 +51,12 @@ class Messages extends Component {
         const db = getDatabase();
         const messageCountRef = ref(db, 'messages/');
         onChildAdded(messageCountRef, (data) => {
-            console.log(data.val());
             data.forEach((item) => {
                 groupMessageArr.push(item.val())
             })
             if (previousProps.currentGroup) {
                 if (previousProps.currentGroup.groupName !== this.props.currentGroup.groupName) {
                     this.setState({ groupMsg: groupMessageArr })
-                    console.log(this.state.groupMsg);
                 }
             } else {
                 this.setState({ groupMsg: groupMessageArr });
@@ -74,7 +71,6 @@ class Messages extends Component {
             if (previousProps.currentGroup) {
                 if (previousProps.currentGroup.groupName !== this.props.currentGroup.groupName) {
                     this.setState({ groupMsg: groupMessageArr })
-                    console.log(this.state.groupMsg);
                 }
             } else {
                 this.setState({ groupMsg: groupMessageArr });
@@ -84,10 +80,6 @@ class Messages extends Component {
     }
 
     render() {
-
-        console.log(this.state.groupMsg);
-        console.log(this.props.currentGroup.groupId);
-
 
         return (
             <div style={{ height: '100vh', backgroundColor: '#f2f2f2' }}>
@@ -120,12 +112,12 @@ class Messages extends Component {
                         <Col md={12}>
                             <div className="message_field overflow-auto " style={{ backgroundColor: '#cccccc', height: '650px' }}>
 
-                                {this.state.groupMsg.map(item => (
-                                    item.groupId == this.props.currentGroup.groupId ?
-                                        <>
+                                {this.state.groupMsg.map((item,index) => (
+                                    item.groupId === this.props.currentGroup.groupId ?
+                                        <div key={index}>
                                             <div className=" mt-1">
 
-                                                <div className="media-body" style={item.sender == this.props.loggedInUser.uid ? rightAlign : ''}>
+                                                <div className="media-body" style={item.sender === this.props.loggedInUser.uid ? rightAlign : ''}>
                                                     <div className="bg-info rounded">
                                                         <div className="col-12 d-flex justify-content-end">
                                                             <h6>{item.userName}</h6><span style={{ marginLeft: '25px' }}>{moment().startOf(item.time).fromNow()}</span>
@@ -134,7 +126,7 @@ class Messages extends Component {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </>
+                                        </div>
                                         :
                                         ''
 

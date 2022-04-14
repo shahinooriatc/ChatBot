@@ -33,7 +33,7 @@ class App extends Component {
         <NavSection />
         {this.state.isLoggedIn ? (
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<ChatBoard />} />
             <Route path="/chatboard" element={<ChatBoard />} />
             <Route path="login" element={<Navigate to="/chatboard" />} />
             <Route path="register" element={<Navigate to="/chatboard" />} />

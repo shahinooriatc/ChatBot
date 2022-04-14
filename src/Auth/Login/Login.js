@@ -37,6 +37,7 @@ class Login extends Component {
                     // Signed in 
                     const user = userCredential.user;
                     console.log(user);
+                    localStorage.setItem('email', user.email);
                     // ...
                 })
                 .catch((error) => {

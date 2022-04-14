@@ -6,6 +6,7 @@ class LogOut extends Component {
     handleLogOut = () => {
         signOut(auth).then(() => {
             console.log('Sign-out successful.');
+            localStorage.removeItem('email')
         }).catch((error) => {
             // An error happened.
         });
