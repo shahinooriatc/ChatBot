@@ -15,7 +15,7 @@ class Home extends Component {
                         <img src={homeImg} alt="homeImg" style={{ width: '100%' }} />
                     </Col>
                     <Col xs={6} style={{ textAlign: 'center', marginTop: '10%' }}>
-                        <h1>Talk Bot</h1>
+                        <h1>Chat Bot</h1>
                         <p style={{ padding: "23px" }}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis aut magni beatae earum, pariatur dicta culpa, dignissimos totam distinctio est rerum. Eos aliquam perferendis officiis porro aut, adipisci perspiciatis animi ipsa in pariatur saepe mollitia sit ad vero laudantium iusto alias dolore corporis illo obcaecati vel. Quasi fugit quibusdam in!</p>
                         <Link to="/login" style={{ textDecoration: 'none' }}>
                             <Button className="btn btn-warning" size="lg">
