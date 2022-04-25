@@ -28,7 +28,8 @@ class NavSection extends Component {
 
                   <Dropdown.Menu variant="dark">
                     <Dropdown.Item active>Logged Email</Dropdown.Item>
-                    <Dropdown.Item>Profile Settings</Dropdown.Item>
+                    <Dropdown.Item>Settings</Dropdown.Item>
+                    <Dropdown.Item>Private Chat</Dropdown.Item>
                     <Dropdown.Divider />
                     <Dropdown.Item onClick={this.handleChange}>
                       {<LogOut />}
